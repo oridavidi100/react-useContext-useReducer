@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import mainContext from '../contexts/main-context';
-import { listOfBook } from '../db/listOfBooks';
+import { db } from '../db/drillDB';
 export default function SearchBar() {
   const { list, dispatch } = useContext(mainContext);
   const [filter, setFilter] = useState('');
@@ -16,14 +16,14 @@ export default function SearchBar() {
   };
 
   const initialData = () => {
-    if (filter.length === 0) dispatch({ type: 'INITIAL_DATA', data: [...listOfBook] });
+    if (filter.length === 0) dispatch({ type: 'INITIAL_DATA', data: [...db] });
   };
 
   return (
     <Container style={{ margin: '0 auto', width: '50%' }}>
       <Form>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <Form.Label>Book Name</Form.Label>
+          <Form.Label>user Name</Form.Label>
           <Form.Control
             onChange={(e) => {
               handleChange(e);

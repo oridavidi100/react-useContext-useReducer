@@ -1,9 +1,9 @@
-import React, { useReducer } from "react";
-import mainContext from "./main-context";
-import { mainReducer } from "../reducers/mainReducer";
-import { listOfBook } from "../db/listOfBooks";
+import React, { useReducer } from 'react';
+import mainContext from './main-context';
+import { mainReducer } from '../reducers/mainReducer';
+import { db } from '../db/drillDB';
 const MainState = (props) => {
-  const [list, dispatch] = useReducer(mainReducer, [...listOfBook]);
+  const [list, dispatch] = useReducer(mainReducer, [...db]);
 
   return (
     <mainContext.Provider
